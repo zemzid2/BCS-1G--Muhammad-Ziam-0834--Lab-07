@@ -3,30 +3,27 @@
 #include <stdio.h>
 
 int main() {
-    int arr[10];
-    int i, j;
+    int a[10];
+    int b[1000] = {0}; 
+    int i;
 
+    printf("Enter 10 elements:\n");
+    
+    for (i = 0; i < 10; i++) {
+        scanf("%d", &a[i]);
 
-    printf("Enter 10 integers: ");
-    for(i = 0; i < 10; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-
-    for(i = 0; i < 10; i++) {
-        if(arr[i] == -1) 
-            continue; 
-        for(j = i + 1; j < 10; j++) {
-            if(arr[i] == arr[j]) {
-                arr[j] = -1; 
-            }
+        if (b[a[i]] == 1) {
+            a[i] = -1;   
+        } else {
+            b[a[i]] = 1; 
         }
     }
 
-    printf("Updated array (duplicates replaced by -1): ");
-    for(i = 0; i < 10; i++) {
-        printf("%d ", arr[i]);
+    printf("Updated array:\n");
+    for (i = 0; i < 10; i++) {
+        printf("%d ", a[i]);
     }
 
     return 0;
 }
+
